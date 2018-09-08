@@ -1,3 +1,38 @@
+# Whats in this fork
+
+To support for background push notification received by (phonegap-plugin-push)[https://github.com/phonegap/phonegap-plugin-push]. Tested with phonegap-plugin-push version 2.1.2 (Cordova android 6.5).
+
+The goal is to produce something like this:
+
+```json
+{
+  "registration_ids": ["my device id"],
+  "data": {
+    "title": "Test Push",
+    "message": "Push number 1",
+    "info": "super secret info",
+    "content-available": "1"
+  }
+}
+```
+
+Example usage (dont use push notification, somehow it will not trigger background listener to run):
+
+```php
+public function toFcm($notifiable)
+{
+    $message = new FcmMessage();
+    $message->contentAvailable(true)
+    ->data([
+        'title'        => $this->title,
+        'body'         => $this->body,
+        'aduan_id' => $this->aduan->id,
+    ])->priority(FcmMessage::PRIORITY_NORMAL); // Optional - Default is 'normal'.
+
+    return $message;
+}
+```    
+
 # laravel-fcm-notification
 Laravel FCM (Firebase Cloud Messaging) Notification Channel
 
