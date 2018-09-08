@@ -1,6 +1,6 @@
 # Whats in this fork
 
-To support for background push notification received by (phonegap-plugin-push)[https://github.com/phonegap/phonegap-plugin-push]. Tested with phonegap-plugin-push version 2.1.2 (Cordova android 6.5).
+To support for background push notification received by [phonegap-plugin-push](https://github.com/phonegap/phonegap-plugin-push). Tested with phonegap-plugin-push version 2.1.2 (Cordova android 6.5).
 
 The goal is to produce something like this:
 
@@ -16,7 +16,7 @@ The goal is to produce something like this:
 }
 ```
 
-Example usage (dont use push notification, somehow it will not trigger background listener to run):
+Example usage (dont use **notification** key, somehow it will not trigger background listener to run):
 
 ```php
 public function toFcm($notifiable)
