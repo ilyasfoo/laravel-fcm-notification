@@ -285,7 +285,10 @@ class FcmMessage
         }
 
         if (isset($this->contentAvailable)) {
-            $payload['content_available'] = $this->contentAvailable;
+            if (!isset($payload['data']))
+                $payload['data'] = [];
+            
+            $payload['data']['content-available'] = $this->contentAvailable ? '1' : '0';
         }
 
         if (isset($this->mutableContent)) {
